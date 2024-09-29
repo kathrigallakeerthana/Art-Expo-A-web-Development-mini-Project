@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>
+        login details</title>
+          <style>
+            h3{
+                text-align: left;  
+                
+            }
+        
+            .password-toggle {
+        position: relative;
+    }
+    #togglePassword {
+        position: absolute;
+        right: 1px;
+        top: 92%;
+        left: 64%;
+        bottom: 80%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+   
+
+           
+           .feed
+           {
+            font-size: 25px;
+            padding: 20px ;
+        margin: 50px auto;
+        width: 50%;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: 650px;
+            width:400px;
+            margin-left:40%;
+            margin-bottom: 10%;
+           }
+   
+ 
+
+          </style>
+</head>
+<body>
+     
+    <div class="feed">
+        <input type="button" value="Art Expo" style="text-align: center; width: 150px;height: 50px; padding: 10px 20px;  font-size: 16px; ">
+        <h3>Sign Up to collect art by the world’s leading artists</h3>
+    <form action="">
+       FullName: <br> <br><input type="Text" id="fname" name="fname"placeholder="Enter your name"style=" width: 350px;height: 50px; padding: 10px 20px;  font-size: 16px;  "> <br>
+        <br>
+        E-mail: <br> <br><input type="email" id="fname" name="fname"placeholder="Enter your mail"style=" width: 350px;height: 50px; padding: 10px 20px;  font-size: 16px;  "> <br>
+        <br>
+        Password: <br> <br><input type="password" id="passwordField"placeholder="Enter your password"style=" width: 350px;height: 50px; padding: 10px 20px;  font-size: 16px;  "> <br>
+       
+        <br>
+        <input type="submit" value="submit"style="text-align: center; width: 150px;height: 50px; padding: 10px 20px;  font-size: 16px;  ">
+       
+     
+            
+       </form>
+</div>
+<script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const passwordField = document.querySelector('#passwordField');
+
+    togglePassword.addEventListener('click', function() {
+        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordField.setAttribute('type', type);
+        // Change eye icon
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash');
+    });
+</script>
+
+</body>
+</html>

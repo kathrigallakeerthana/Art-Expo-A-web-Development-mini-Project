@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Webpage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            font-size: 50px;
+        }
+
+        .image-container {
+            display:flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .image-container div {
+            text-align: center;
+            transition: transform 0.3s ease-in-out; 
+            width:80%;
+        }
+
+        .image-container img {
+            width: 80%;
+            height:80%;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid #ddd;
+            padding: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container img:hover {
+            transform: scale(1.1); /* Scale up the image on hover */
+            background-color: #290f0f; 
+        }
+
+        .image-name {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 15px;
+            margin-left: 20px;
+        }
+        .button {
+            padding: 15px ;
+            font-size: 24px;
+            text-align: center;
+            cursor:pointer;
+          }
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <div class="image-container">
+        <div>
+            <img src="Summer Garden.jpg" alt="Image 1">
+            <div class="image-name">Summer Garden</div>
+            <div class="image-name">Motoko</div>
+            
+            
+        </div>
+        <div>
+            <img src="Sprit Falls.jpg" alt="Image 2">
+            <div class="image-name">Sprit Falls</div>
+            <div class="image-name">Motoko</div>
+            
+        </div>
+        <div>
+            <img src="The joy of winter.jpg" alt="Image 3">
+            <div class="image-name">The Joy of Winter</div>
+            <div class="image-name">Motoko</div>     
+        </div>
+    </div>
+    <div class="image-container">
+        <div>
+            <img src="The joy of spring.jpg" alt="Image 3">
+            <div class="image-name">The Joy Of Spring</div> 
+            <div class="image-name">Motoko</div>     
+        </div>
+        
+        <div>
+            <img src="Autumn Glow.jpg" alt="Image 3">
+            <div class="image-name">Autumn Glow</div>
+            <div class="image-name">Motoko</div>     
+        </div>
+        <div>
+            <img src="Blue Reflection.jpg" alt="Image 3">
+            <div class="image-name">Blue Reflection</div>
+            <div class="image-name">Motoko</div>     
+        </div>
+    </div>
+    <div class="image-container">
+        <div>
+            <img src="Monument.jpg" alt="Image 3">
+            <div class="image-name">Monument</div> 
+            <div class="image-name">Motoko</div>     
+        </div>
+        <div>
+            <img src="Universe.jpg" alt="Image 3">
+            <div class="image-name">Universe</div> 
+            <div class="image-name">Motoko</div>     
+        </div>
+        <div>
+            <img src="Ocean.jpg" alt="Image 3">
+            <div class="image-name">Ocean</div> 
+            <div class="image-name">Motoko</div>     
+                
+        </div>
+    </div>
+</body>
+</html>
