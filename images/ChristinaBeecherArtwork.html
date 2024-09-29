@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Webpage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            font-size: 50px;
+        }
+
+        .image-container {
+            display:flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .image-container div {
+            text-align: center;
+            transition: transform 0.3s ease-in-out; 
+            width:80%;
+        }
+
+        .image-container img {
+            width: 80%;
+            height:80%;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid #ddd;
+            padding: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container img:hover {
+            transform: scale(1.1); /* Scale up the image on hover */
+            background-color: #290f0f; 
+        }
+
+        .image-name {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 15px;
+            margin-left: 20px;
+        }
+        .button {
+            padding: 15px ;
+            font-size: 24px;
+            text-align: center;
+            cursor:pointer;
+          }
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <div class="image-container">
+        <div>
+            <img src="After Summer Rains Ink on Satin.jpg" alt="Image 1">
+            <div class="image-name">After Summer Rains Ink on Satin</div>
+            <div class="image-name">ChristinaBeecher</div>
+            
+            
+        </div>
+        <div>
+            <img src="Winter's Withdrawal.jpg" alt="Image 2">
+            <div class="image-name">Winter's Withdrawal</div>
+            <div class="image-name">ChristinaBeecher   2024</div>
+            
+        </div>
+        <div>
+            <img src="Emerald Pasture.jpg" alt="Image 3">
+            <div class="image-name">Emerald Pasture</div>
+            <div class="image-name">ChristinaBeecher   2018</div>     
+        </div>
+    </div>
+    <div class="image-container">
+        <div>
+            <img src="Misted.jpg" alt="Image 3">
+            <div class="image-name">Misted</div> 
+            <div class="image-name">ChristinaBeecher   2020</div>     
+        </div>
+        
+        <div>
+            <img src="Sherborn Light.jpg" alt="Image 3">
+            <div class="image-name">Sherborn Light</div>
+            <div class="image-name">ChristinaBeecher   2023</div>     
+        </div>
+        <div>
+            <img src="Augusta.jpg" alt="Image 3">
+            <div class="image-name">Augusta</div>
+            <div class="image-name">ChristinaBeecher   2020</div>     
+        </div>
+    </div>
+    <div class="image-container">
+        <div>
+            <img src="South Johns Beach.jpg" alt="Image 3">
+            <div class="image-name">South: Johns Beach</div> 
+            <div class="image-name">ChristinaBeecher   2022</div>     
+        </div>
+    </div>
+</body>
+</html>

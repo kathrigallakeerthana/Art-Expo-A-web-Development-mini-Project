@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Photo Slideshow</title>
+    <style>
+        .slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+}
+h3 {
+            text-align: left;
+        }
+
+        .password-toggle {
+            position: relative;
+        }
+
+     
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .feed {
+            font-size: 25px;
+            padding: 20px;
+            margin: 50px auto;
+            width: 30%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fefefe;
+            z-index: 1000;
+        }
+        .popup-overlay1 {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .feed1 {
+            font-size: 25px;
+            padding: 20px;
+            margin: 50px auto;
+            width: 30%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fefefe;
+            z-index: 1000;
+        }
+
+        .popup-content1 {
+            text-align: center;
+        }
+
+        .close1 {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #f8f0f0;
+        }
+        .popup-content {
+            text-align: center;
+        }
+.slide {
+    display: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #333;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0 10px;
+}
+
+nav
+{
+  text-align: right;
+}
+
+#gallery-image {
+  width: 100%;
+  height: auto;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 16px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+.close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #faf4f4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="Homepage.html">Home</a></li>   
+          <li> <span id="openLoginPopupLink1" style="cursor: pointer; color: #fefefe;">Sign Up</span></li>
+          <li> <span id="openLoginPopupLink" style="cursor: pointer; color: #fefefe;">Login</span></li>
+          <li><a href="projectwork.html">Artists</a></li>
+          <li><a href="index.html">Arts</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="popup-overlay" id="popupOverlay">
+      <div class="feed">
+          <div class="popup-content">
+           
+              <input type="button" value="Art Expo" style="text-align: center; width: 150px;height: 50px; padding: 10px 20px;  font-size: 16px;margin-right: 300px; ">
+              <h3>Log in to collect art by the world’s leading artists</h3>
+              
+              <form id="loginForm1">
+                <span class="close" id="closePopup">&#10006;</span>
+                  <p style="text-align: left;">E-mail:</p><input type="email" id="fname" name="fname" placeholder="Enter your mail"
+                                         required style="width: 350px;height: 50px; padding: 10px 20px;  font-size: 16px; "><br>
+              <p style="text-align: left;">Password:</p><input type="password" id="passwordField" placeholder="Enter your password"
+                                          required   style="width: 350px;height: 50px; padding: 10px 20px;  font-size: 16px;"><br>
+                  <br><input type="submit" value="Submit"
+                         style="text-align: center; width: 150px;height: 50px; padding: 10px 20px;  font-size: 16px;">
+              </form>
+          </div>
+      </div>
+  </div>
+  <div class="popup-overlay1" id="popupOverlay1">
+    <div class="feed1">
+        <span class="close1" id="closePopup1">&#10006;</span>
+        <input type="button" value="Art Expo" style="text-align: center; width: 150px;height: 50px; padding: 10px 20px;  font-size: 16px; ">
+        <h3>Sign Up to collect art by the world’s leading artists</h3>
+    <form id="loginForm">
+      Full Name: <br><input type="text" id="fname" name="fname"placeholder="Enter your Name" required style=" width: 350px;height: 40px; padding: 10px 20px;  font-size: 16px;  "> <br>
+      
+        E-mail: <br><input type="email" id="fname" name="fname"placeholder="Enter your mail" required style=" width: 350px;height: 40px; padding: 10px 20px;  font-size: 16px;  "> <br>
+        
+        Password: <br> <input type="password" id="passwordField"placeholder="Enter your password"required style=" width: 350px;height: 40px; padding: 10px 20px;  font-size: 16px;  "> <br>
+<br>
+        <input type="submit" value="submit"style="text-align: center; width: 150px;height: 50px; padding: 10px 20px;  font-size: 16px;  ">
+            
+       </form>
+    </div>
+</div>
+  
+    <div class="slideshow-container">
+        <div class="slide fade">
+          
+            <img src="3.jpg" alt="Art Gallery Image" id="gallery-image">
+            
+        </div>
+        <div class="slide fade">
+            <img src="2.jpg" alt="Slide 2">
+        </div>
+        <div class="slide fade">
+            <img src="1.jpg" alt="Slide 2">
+        </div>
+        <button class="prev" onclick="changeSlide(-1)">❮</button>
+        <button class="next" onclick="changeSlide(1)">❯</button>
+    </div>
+
+    <script >let slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1
+            }    
+            slides[slideIndex - 1].style.display = "block";  
+            setTimeout(showSlides, 5000); // Change image every 2 seconds
+        }
+        
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+        const openLoginPopupLink = document.getElementById('openLoginPopupLink');
+        const closePopup = document.getElementById('closePopup');
+    const popupOverlay = document.getElementById('popupOverlay');
+
+    openLoginPopupLink.addEventListener('click', function () {
+        popupOverlay.style.display = 'block';
+
+    });
+    closePopup.addEventListener('click', function () {
+        popupOverlay.style.display = 'none';
+    });
+    const openLoginPopupLink1 = document.getElementById('openLoginPopupLink1');
+    const closePopup1 = document.getElementById('closePopup1');
+    const popupOverlay1 = document.getElementById('popupOverlay1');
+    const loginForm = document.getElementById('loginForm');
+    const loginForm1 = document.getElementById('loginForm1');
+    openLoginPopupLink1.addEventListener('click', function () {
+        popupOverlay1.style.display = 'block';
+    });
+
+    closePopup1.addEventListener('click', function () {
+        popupOverlay1.style.display = 'none';
+    });
+    loginForm.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Display a message
+        alert('Welcome to our website Art Expo!!');
+
+        // Close the popup
+        popupOverlay.style.display = 'none';
+    });
+    loginForm1.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Display a message
+        alert('Login successful!');
+
+        // Close the popup
+        popupOverlay1.style.display = 'none';
+    });
+        </script>
+</body>
+</html>
+
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Webpage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            font-size: 50px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .image-container div {
+            text-align: center;
+            transition: transform 0.3s ease-in-out; 
+            width:80%;
+        }
+
+        .image-container img {
+            width: 80%;
+            height: 80%;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid #ddd;
+            padding: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container img:hover {
+            transform: scale(1.1); /* Scale up the image on hover */
+            background-color: #290f0f; 
+        }
+
+        .image-name {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 15px;
+            margin-left: 20px;
+        }
+        .button {
+            padding: 15px ;
+            font-size: 24px;
+            text-align: center;
+            cursor:pointer;
+          }
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <div class="image-container">
+        <div>
+            <img src="EarthlyDelights-2017(arghavan).jpg" alt="Image 1">
+            <div class="image-name">Earthly Delights</div>
+            <div class="image-name">Arghavan Khosravi - 2017</div>
+            
+            
+        </div>
+        <div>
+            <img src="Curiosity(arghavan).jpg" alt="Image 2">
+            <div class="image-name">Curiosity</div>
+            <div class="image-name">Arghavan Khosravi - 2022</div>
+            
+        </div>
+        <div>
+            <img src="Patiently waiting(arghavan).jpg" alt="Image 3">
+            <div class="image-name">Patiently waiting</div> 
+            <div class="image-name">Arghavan Khosravi - 2021</div>     
+        </div>
+    </div>
+    <div class="image-container">
+        <div>
+            <img src="The suspension (arghavan).jpg" alt="Image 3">
+            <div class="image-name">The suspension</div> 
+            <div class="image-name">Arghavan Khosravi - 2021</div>     
+        </div>
+        <div>
+            <img src="A Family Portrait(arghavan).jpg" alt="Image 3">
+            <div class="image-name">A Family Portrait(Childhood Memories)</div>
+            <div class="image-name">Arghavan Khosravi - 2019</div>     
+        </div>
+    </div>
+</body>
+</html>

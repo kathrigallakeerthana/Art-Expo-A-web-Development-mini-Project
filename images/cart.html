@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        /* Styles for the cart */
+        #cart {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Styles for the items */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        header {
+            background-color: #333;
+            padding: 10px 0;
+            background-image: url(logo_cleanup.png);
+            color: #fff;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #050505;
+            text-decoration: none;
+            padding: 0 10px;
+        }
+
+        nav {
+            text-align: right;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Styles for the delete button */
+        .delete-btn {
+            cursor: pointer;
+        }
+
+        body {
+            background-image: url(logo_cleanup.png);
+            background-repeat: no-repeat; /* Prevent image repetition */
+            background-size: cover; /* Cover the entire viewport */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <marquee behavior="alternate" scrollamount="15" style="font-size: 24px;color: #050505;">Art Expo</marquee>
+        <nav>
+            <ul>   
+                <li><a href="Homepage.html" >Home</a></li>
+               
+                <li><a href="projectwork.html">Artists</a></li>
+                <li><a href="index.html">Arts</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="cart">
+        <h1>Cart</h1>
+        <table id="cart-items">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Number of products</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <p>Total: $<span id="cart-total">0</span></p>
+        <button id="buy-button">Buy</button>
+    </div>
+
+    <script>
+        // Retrieve cart data from localStorage
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const cartItemsTable = document.getElementById('cart-items').getElementsByTagName('tbody')[0];
+        const cartTotal = document.getElementById('cart-total');
+        const buyButton = document.getElementById('buy-button');
+
+        // Function to update the cart
+        function updateCart() {
+            // Clear previous items
+            cartItemsTable.innerHTML = '';
+
+            // Update items in the cart
+            cartItems.forEach(item => {
+                const tr = document.createElement('tr');
+
+                // Create name cell
+                const nameCell = document.createElement('td');
+                nameCell.textContent = item.name;
+                tr.appendChild(nameCell);
+
+                // Create amount cell
+                const amountCell = document.createElement('td');
+                amountCell.textContent = item.amount;
+                tr.appendChild(amountCell);
+
+                // Create price cell
+                const priceCell = document.createElement('td');
+                const itemPrice = item.price * item.amount;
+                priceCell.textContent = `$${itemPrice.toFixed(2)}`;
+                tr.appendChild(priceCell);
+
+                // Create action cell
+                const actionCell = document.createElement('td');
+                // Create a link to navigate to the product page
+                const navigateLink = document.createElement('a');
+                navigateLink.textContent = 'View Product';
+                navigateLink.href = `product_${item.name.toLowerCase().replace(/\s/g, '_')}.html`; // Assuming each product page is named "product_itemname.html"
+                actionCell.appendChild(navigateLink);
+                // Add a separator between the link and delete button
+                actionCell.appendChild(document.createTextNode(' | '));
+                // Create a delete button to remove the item from the cart
+                const deleteButton = document.createElement('span');
+                deleteButton.textContent = '❌';
+                deleteButton.className = 'delete-btn';
+                deleteButton.addEventListener('click', () => {
+                    // Remove item from cart
+                    cartItems = cartItems.filter(cartItem => cartItem.name !== item.name);
+                    // Update localStorage
+                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                    // Update cart display
+                    updateCart();
+                });
+                actionCell.appendChild(deleteButton);
+                tr.appendChild(actionCell);
+
+                cartItemsTable.appendChild(tr);
+            });
+
+            // Calculate total
+            const total = cartItems.reduce((acc, item) => acc + (item.price * item.amount), 0);
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        // Update the cart initially
+        updateCart();
+
+        // Buy button functionality
+        buyButton.addEventListener('click', function() {
+            if (cartItems.length > 0) {
+                alert('Thank you for your purchase! Delivery will be soon.');
+            } else {
+                alert('Nothing is left in the cart.');
+            }
+        });
+    </script>
+</body>
+</html>
